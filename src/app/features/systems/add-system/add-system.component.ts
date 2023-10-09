@@ -1,17 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { AddSystemRequest } from '../../models/add-system-request.model';
 import { SystemService } from '../services/system.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-system',
   templateUrl: './add-system.component.html',
   styleUrls: ['./add-system.component.css']
 })
-export class AddSystemComponent {
+export class AddSystemComponent implements OnDestroy {
 
   model: AddSystemRequest;
+  private addSystemSubscribtion?: Subscription;
 
-  constructor(private systemService:SystemService)
+  constructor(private systemService:SystemService,private router:Router)
    {
     this.model = {
       name: '',
@@ -22,9 +25,11 @@ export class AddSystemComponent {
 
   onFormSubmit()
   {
-    this.systemService.addSystem(this.model).subscribe({
+    this.addSystemSubscribtion =  this.systemService.addSystem(this.model).subscribe({
       next:(response)=>{
-      console.log('This is successful')
+    
+        this.router.navigateByUrl('/admin/systems')
+
       },
       error:(error)=>
       {
@@ -32,5 +37,10 @@ export class AddSystemComponent {
       }
     })
   }
+
+  ngOnDestroy(): void {
+    this.addSystemSubscribtion?.unsubscribe();
+  }
+
 
 }

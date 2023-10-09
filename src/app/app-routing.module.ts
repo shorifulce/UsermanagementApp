@@ -7,10 +7,11 @@ const routes: Routes = [
 {
   path:'admin/systems',
   component:SystemListComponent
-},{
+},
+{
   path:'admin/systems/add',
   component:AddSystemComponent
-}
+},
 
 ];
 
