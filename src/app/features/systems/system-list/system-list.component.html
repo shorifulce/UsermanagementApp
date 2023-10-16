@@ -1,9 +1,6 @@
 <div class="container">
 
     <h1 class="mt-3">System List</h1>
-  
-   
-
     <div class="d-flex justify-content-end mt-3">
       <a [routerLink]="['/admin/systems/add']" class="btn btn-primary">Add System</a>
     </div>
@@ -14,8 +11,11 @@
              <th>System ID</th>
             <th>System Name</th>
             <th>System Details</th>
+            <th>Controller ID </th>
             <th>Controller Name </th>
-          
+             <th>
+              Action
+             </th>
           </tr>
         </thead>
         <tbody>
@@ -24,10 +24,14 @@
             <td>{{system.name}}</td>
             <td>{{system.systemDetails}}</td>
             <td>{{system.responsbleManagement}}</td>
-            <td>
-            <td>
-              <a class="btn btn-light" [routerLink]="['/admin/system', system.id]">Edit</a>
+            <td>    
+             {{ system.responsbleManagementNavigation.firstName}}             
             </td>
+            <td>
+            <td>
+              <a class="btn btn-light" [routerLink]="['/admin/systems', system.id]">Edit</a>
+            </td>
+           
            
           </tr>
         </tbody>

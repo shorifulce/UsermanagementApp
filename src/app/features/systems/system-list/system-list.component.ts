@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SystemService } from '../services/system.service';
-import { System } from '../../models/system.model';
+import { System } from '../../systems/models/system.model';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -15,7 +15,6 @@ export class SystemListComponent implements OnInit {
 constructor(private systemService:SystemService) {
  
 }
-
 ngOnInit(): void {
  this.systems$=this.systemService.getAllSystems();  
 }

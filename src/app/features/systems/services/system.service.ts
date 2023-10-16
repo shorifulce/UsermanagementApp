@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AddSystemRequest } from '../../models/add-system-request.model';
+import { AddSystemRequest } from '../../systems/models/add-system-request.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { System } from '../../models/system.model';
+import { System } from '../../systems/models/system.model';
 import{environment} from 'src/environments/environment'
+import { UpdateSystemRequest } from '../../systems/models/update-system-request';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,19 @@ export class SystemService {
    // return this.http.get<System[]>('${environment.apiBaseUrl}/api/SystemTable')
     return this.http.get<System[]>(`${environment.apiBaseUrl}/api/SystemTable`);
   }
+
+  getSystemById(id:number):Observable<System>
+  {
+    return this.http.get<System>(`${environment.apiBaseUrl}/api/SystemTable/${id}`)
+  }
+   
+ 
+  updateSystem(id: number, updateSystemRequest: UpdateSystemRequest) : Observable<System> {
+    return this.http.put<System>(`${environment.apiBaseUrl}/api/SystemTable/${id}`,updateSystemRequest)
+  }
+
+  deleteService(id: number) : Observable<System> {
+    return this.http.delete<System>(`${environment.apiBaseUrl}/api/SystemTable/${id}`)
+  }
+
 }

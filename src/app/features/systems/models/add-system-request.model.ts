@@ -1,6 +1,6 @@
 export interface AddSystemRequest {
     name: string;
     systemDetails: string;
-    responsbleManagement:number;
+    responsbleManagement:number | null;
   }
   
