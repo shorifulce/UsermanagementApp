@@ -1,3 +1,7 @@
+import { Department } from "../../department/models/department.model"
+import { Designation } from "../../designation/models/designation.model"
+import { Gender } from "../../gender/models/gender.model"
+
 export interface ManagementTbl{
     id:number,
     firstName: string,
@@ -13,6 +17,10 @@ export interface ManagementTbl{
     userName: string,
     userPassword: string,
     startDate: string,
-    workingPlace: number | null
+    workingPlace: number | null,
+    department:Department,
+    designationNavigation:Designation,
+    genderNavigation:Gender,
+    
 
 }

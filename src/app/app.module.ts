@@ -14,7 +14,8 @@ import { AddEmployeeRequestComponent } from './features/employee/add-employee-re
 import { UpdateEmployeeRequestComponent } from './features/employee/update-employee-request/update-employee-request.component';
 import { ManagementListComponent } from './features/managementTbl/management-list/management-list.component';
 import { AddManagementRequestComponent } from './features/managementTbl/add-management-request/add-management-request.component';
-import { UpdateManagementRequestComponent } from './features/managementTbl/update-management-request/update-management-request.component'
+import { UpdateManagementRequestComponent } from './features/managementTbl/update-management-request/update-management-request.component';
+import { LoginComponent } from './features/auth/login/login.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { UpdateManagementRequestComponent } from './features/managementTbl/updat
     UpdateEmployeeRequestComponent,
     ManagementListComponent,
     AddManagementRequestComponent,
-    UpdateManagementRequestComponent
+    UpdateManagementRequestComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -6,12 +6,20 @@ import { EditSystemComponent } from './features/systems/edit-system/edit-system.
 import { ManagementListComponent } from './features/managementTbl/management-list/management-list.component';
 import { AddManagementRequestComponent } from './features/managementTbl/add-management-request/add-management-request.component';
 import { UpdateManagementRequestComponent } from './features/managementTbl/update-management-request/update-management-request.component';
+import { LoginComponent } from './features/auth/login/login.component';
 
 const routes: Routes = [
-{
-  path:'admin/systems',
-  component:SystemListComponent
-},
+  
+  {
+    path:'login',
+    component:LoginComponent
+  },
+  
+  {
+
+    path:'admin/systems',
+    component:SystemListComponent
+  },
 {
   path:'admin/systems/add',
   component:AddSystemComponent
