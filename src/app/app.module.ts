@@ -7,7 +7,7 @@ import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { SystemListComponent } from './features/systems/system-list/system-list.component';
 import { AddSystemComponent } from './features/systems/add-system/add-system.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { EditSystemComponent } from './features/systems/edit-system/edit-system.component';
 import { EmployeeListComponent } from './features/employee/employee-list/employee-list.component';
 import { AddEmployeeRequestComponent } from './features/employee/add-employee-request/add-employee-request.component';
@@ -16,6 +16,7 @@ import { ManagementListComponent } from './features/managementTbl/management-lis
 import { AddManagementRequestComponent } from './features/managementTbl/add-management-request/add-management-request.component';
 import { UpdateManagementRequestComponent } from './features/managementTbl/update-management-request/update-management-request.component';
 import { LoginComponent } from './features/auth/login/login.component'
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,13 @@ import { LoginComponent } from './features/auth/login/login.component'
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

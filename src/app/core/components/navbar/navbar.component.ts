@@ -24,7 +24,7 @@ export class NavbarComponent {
       }
     });
 
-    //this.user = this.authService.getUser();
+    this.user = this.authService.getUser();
 
   }
   onLogout(): void {

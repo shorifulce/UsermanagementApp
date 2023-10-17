@@ -30,6 +30,21 @@ export class AuthService {
     return this.$user.asObservable();
   }
 
+  getUser(): User | undefined {
+    const userName = localStorage.getItem('user-name');
+    const usertype = localStorage.getItem('user-type');
+
+    if (userName && usertype) {
+      const user: User = {
+        username: userName,
+        userType: usertype
+      };
+
+      return user;
+    }
+
+    return undefined;
+  }
 
 
   logout(): void {

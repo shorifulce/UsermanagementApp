@@ -14,12 +14,7 @@ export class SystemService {
   constructor(private http:HttpClient) { }
 
 
-  addSystem(model:AddSystemRequest):Observable<void>
-  {
-     // return this.http.post<void>('${environment}/api/SystemTable',model)
-      return this.http.post<void>(`${environment.apiBaseUrl}/api/SystemTable`, model);
-  }
-
+ 
   getAllSystems():Observable<System[]>{
    // return this.http.get<System[]>('${environment.apiBaseUrl}/api/SystemTable')
     return this.http.get<System[]>(`${environment.apiBaseUrl}/api/SystemTable`);
@@ -30,13 +25,19 @@ export class SystemService {
     return this.http.get<System>(`${environment.apiBaseUrl}/api/SystemTable/${id}`)
   }
    
+  addSystem(model:AddSystemRequest):Observable<void>
+  {
+     // return this.http.post<void>('${environment}/api/SystemTable',model)
+      return this.http.post<void>(`${environment.apiBaseUrl}/api/SystemTable?addAuth=true`, model);
+  }
+
  
   updateSystem(id: number, updateSystemRequest: UpdateSystemRequest) : Observable<System> {
-    return this.http.put<System>(`${environment.apiBaseUrl}/api/SystemTable/${id}`,updateSystemRequest)
+    return this.http.put<System>(`${environment.apiBaseUrl}/api/SystemTable/${id}?addAuth=true`,updateSystemRequest)
   }
 
   deleteService(id: number) : Observable<System> {
-    return this.http.delete<System>(`${environment.apiBaseUrl}/api/SystemTable/${id}`)
+    return this.http.delete<System>(`${environment.apiBaseUrl}/api/SystemTable/${id}?addAuth=true`)
   }
 
 }
