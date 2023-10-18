@@ -7,6 +7,7 @@ import { ManagementListComponent } from './features/managementTbl/management-lis
 import { AddManagementRequestComponent } from './features/managementTbl/add-management-request/add-management-request.component';
 import { UpdateManagementRequestComponent } from './features/managementTbl/update-management-request/update-management-request.component';
 import { LoginComponent } from './features/auth/login/login.component';
+import { authGuard } from './features/auth/guards/auth.guard';
 
 const routes: Routes = [
   
@@ -18,29 +19,35 @@ const routes: Routes = [
   {
 
     path:'admin/systems',
-    component:SystemListComponent
+    component:SystemListComponent,
+    canActivate: [authGuard]
   },
 {
   path:'admin/systems/add',
-  component:AddSystemComponent
+  component:AddSystemComponent,
+  canActivate: [authGuard]
 },
 {
   path:'admin/systems/:id',
-  component:EditSystemComponent
+  component:EditSystemComponent,
+  canActivate: [authGuard]
 
 },
 {
   path:'admin/managements',
-  component:ManagementListComponent
+  component:ManagementListComponent,
+  canActivate: [authGuard]
 }
 ,
 {
   path:'admin/managements/add',
-  component:AddManagementRequestComponent
+  component:AddManagementRequestComponent,
+  canActivate: [authGuard]
 },
 {
   path:'admin/managements/:id',
-  component:UpdateManagementRequestComponent
+  component:UpdateManagementRequestComponent,
+  canActivate: [authGuard]
 }
 
 ];

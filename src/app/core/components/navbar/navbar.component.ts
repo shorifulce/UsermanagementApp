@@ -11,10 +11,10 @@ import { AuthService } from 'src/app/features/auth/services/auth.service';
 export class NavbarComponent {
 
   user?:User;
+
   constructor(private authService: AuthService,
     private router: Router) {
   }
-
 
   ngOnInit(): void {
     this.authService.user()

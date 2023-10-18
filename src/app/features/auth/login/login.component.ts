@@ -38,8 +38,6 @@ export class LoginComponent {
         username: response.username,
         userType: response.userType.toString()
       });
-
-
        // Redirect back to Home
        this.router.navigateByUrl('/');
 

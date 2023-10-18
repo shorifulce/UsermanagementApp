@@ -17,12 +17,12 @@ export class SystemService {
  
   getAllSystems():Observable<System[]>{
    // return this.http.get<System[]>('${environment.apiBaseUrl}/api/SystemTable')
-    return this.http.get<System[]>(`${environment.apiBaseUrl}/api/SystemTable`);
+    return this.http.get<System[]>(`${environment.apiBaseUrl}/api/SystemTable?addAuth=true`);
   }
 
   getSystemById(id:number):Observable<System>
   {
-    return this.http.get<System>(`${environment.apiBaseUrl}/api/SystemTable/${id}`)
+    return this.http.get<System>(`${environment.apiBaseUrl}/api/SystemTable/${id}?addAuth=true`)
   }
    
   addSystem(model:AddSystemRequest):Observable<void>

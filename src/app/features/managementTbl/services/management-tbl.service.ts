@@ -16,26 +16,26 @@ export class ManagementTblService {
 
    getAllManagement():Observable<ManagementTbl[]>{
    
-     return this.http.get<ManagementTbl[]>(`${environment.apiBaseUrl}/api/Management`);
+     return this.http.get<ManagementTbl[]>(`${environment.apiBaseUrl}/api/Management?addAuth=true`);
    }
 
    addManagement(model:AddManagementRequest):Observable<void>
    {
       
-       return this.http.post<void>(`${environment.apiBaseUrl}/api/Management`, model);
+       return this.http.post<void>(`${environment.apiBaseUrl}/api/Management?addAuth=true`, model);
    }
  
    getManagementById(id:number):Observable<ManagementTbl>
    {
-     return this.http.get<ManagementTbl>(`${environment.apiBaseUrl}/api/Management/${id}`)
+     return this.http.get<ManagementTbl>(`${environment.apiBaseUrl}/api/Management/${id}?addAuth=true`)
    }
     
    updateManagement(id: number, updateManagementRequest: UpdateManagementRequest) : Observable<ManagementTbl> {
-    return this.http.put<ManagementTbl>(`${environment.apiBaseUrl}/api/Management/${id}`,updateManagementRequest)
+    return this.http.put<ManagementTbl>(`${environment.apiBaseUrl}/api/Management/${id}?addAuth=true`,updateManagementRequest)
   }
 
   deleteManagement(id: number) : Observable<ManagementTbl> {
-    return this.http.delete<ManagementTbl>(`${environment.apiBaseUrl}/api/Management/${id}`)
+    return this.http.delete<ManagementTbl>(`${environment.apiBaseUrl}/api/Management/${id}?addAuth=true`)
   }
   
 

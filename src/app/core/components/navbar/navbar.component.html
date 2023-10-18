@@ -10,7 +10,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
         
-          <ng-container *ngIf="user !== undefined && user?.userType?.includes('1')">
+          <ng-container *ngIf="user !== undefined && user?.userType?.includes('1') || user?.userType?.includes('2')">
           
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
